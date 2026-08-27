@@ -1,0 +1,101 @@
+---
+import en from '../../public/locales/en/translation.json';
+
+const home = en.home;
+
+const featureGroups = [
+	{
+		key: 'esp',
+		title: home.aboutEspTitle,
+		items: home.aboutEspItems.split(',').map((item) => item.trim()).filter(Boolean),
+		icon: 'eye',
+	},
+	{
+		key: 'combat',
+		title: home.aboutCombatTitle,
+		items: home.aboutCombatItems.split(',').map((item) => item.trim()).filter(Boolean),
+		icon: 'aim',
+	},
+	{
+		key: 'movement',
+		title: home.aboutMoveTitle,
+		items: home.aboutMoveItems.split(',').map((item) => item.trim()).filter(Boolean),
+		icon: 'bolt',
+	},
+] as const;
+
+const quickLinks = [
+	{ href: '/unturned-hacks/', label: home.aboutPillar },
+	{ href: '/unturned-esp/', label: home.aboutEsp },
+	{ href: '/unturned-aimbot/', label: home.aboutAimbot },
+	{ href: '/features/', label: home.aboutFeatures },
+] as const;
+---
+
+<section class="home-about shell" aria-labelledby="home-about-title">
+	<div class="home-about__head">
+		<p class="home-about__eyebrow">{home.aboutEyebrow}</p>
+		<h2 id="home-about-title" class="home-about__title">
+			{home.aboutTitleBefore}
+			<span class="home-about__title-accent">{home.aboutTitleAccent}</span>
+			{home.aboutTitleAfter}
+		</h2>
+		<p class="home-about__intro">{home.aboutIntro}</p>
+	</div>
+
+	<div class="home-about__grid">
+		{
+			featureGroups.map((group) => (
+				<article class="home-about__card">
+					<div class="home-about__card-icon" aria-hidden="true">
+						{group.icon === 'eye' && (
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" />
+								<circle cx="12" cy="12" r="3" />
+							</svg>
+						)}
+						{group.icon === 'aim' && (
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<circle cx="12" cy="12" r="10" />
+								<circle cx="12" cy="12" r="3" />
+								<path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+							</svg>
+						)}
+						{group.icon === 'bolt' && (
+							<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+							</svg>
+						)}
+					</div>
+					<h3 class="home-about__card-title">{group.title}</h3>
+					<ul class="home-about__card-list">
+						{group.items.map((item) => (
+							<li>{item}</li>
+						))}
+					</ul>
+				</article>
+			))
+		}
+	</div>
+
+	<div class="home-about__footer">
+		<div class="home-about__links">
+			<p class="home-about__links-label">{home.aboutLinksTitle}</p>
+			<div class="home-about__links-row">
+				{quickLinks.map((link) => (
+					<a href={link.href} class="home-about__link">
+						{link.label}
+					</a>
+				))}
+			</div>
+		</div>
+		<div class="home-about__actions">
+			<a href="/pricing/" class="home-about__cta home-about__cta--primary">
+				{home.aboutStore}
+			</a>
+			<a href="/updates/" class="home-about__cta home-about__cta--ghost">
+				{home.aboutStatus}
+			</a>
+		</div>
+	</div>
+</section>
