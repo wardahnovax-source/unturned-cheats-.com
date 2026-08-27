@@ -9,6 +9,7 @@ import { getSelfHreflangAlternates } from '../../data/i18n/routing';
 import { getReviewPath, reviewsBasePath } from '../../data/reviews';
 import { defaultCrawlImageSrc } from '../../data/page-images';
 import { contentSrcSet, productMainSizes } from '../../lib/responsive-images';
+import OtherGameGuides from '../../components/OtherGameGuides.astro';
 
 const title = seoPageTitle(brandSeo.reviewsTitle);
 const description = seoDescription(brandSeo.reviewsDescription);
@@ -141,6 +142,8 @@ const extraGraph: Record<string, unknown>[] = [
 					<a href="/pricing/" class="reviews-index__link-btn">Compare pricing</a>
 				</div>
 			</section>
+
+			<OtherGameGuides />
 		</div>
 	</main>
 	<SiteFooter />
