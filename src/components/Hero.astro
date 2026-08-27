@@ -185,7 +185,7 @@ const monthly = productInfo.plans.find((p) => p.id === 'monthly') ?? productInfo
 		margin-left: auto;
 		padding: 0 0.85rem;
 		border-radius: 999px;
-		background: #09090b;
+		background: color-mix(in srgb, var(--bg) 88%, transparent);
 		color: #fff;
 		font-size: 0.8125rem;
 		font-weight: 700;
@@ -193,16 +193,16 @@ const monthly = productInfo.plans.find((p) => p.id === 'monthly') ?? productInfo
 	}
 
 	.hero__buy:hover {
-		background: #f4f4f5;
-		color: #09090b;
+		background: var(--accent-hover);
+		color: #0a1628;
 		transform: translateY(-2px);
 		box-shadow:
-			0 1px 0 color-mix(in srgb, #fff 70%, transparent) inset,
+			0 1px 0 color-mix(in srgb, #fff 40%, transparent) inset,
 			0 14px 32px rgba(0, 0, 0, 0.34);
 	}
 
 	.hero__buy:hover .hero__buy-price {
-		background: var(--magenta);
+		background: var(--bg);
 	}
 
 	.hero__buy:active {
