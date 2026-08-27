@@ -1,3 +1,4 @@
+import guideHostThumbnails from './guide-host-thumbnails.generated.json';
 import guideThumbnails from './guide-thumbnails.generated.json';
 
 export interface OtherGameGuide {
@@ -58,7 +59,7 @@ const GAME_PATTERNS: ReadonlyArray<{
 ];
 
 /** Raw list — duplicates kept per request. */
-const OTHER_GAME_GUIDE_URLS = [
+export const OTHER_GAME_GUIDE_URLS = [
 	'https://arcraiderscheat.net/',
 	'https://genshincheats.net/',
 	'https://dbdcheats.net/',
@@ -156,7 +157,7 @@ const OTHER_GAME_GUIDE_URLS = [
 	'https://warframehacks.com/',
 ] as const;
 
-function normalizeGuideUrl(raw: string): string {
+export function normalizeGuideUrl(raw: string): string {
 	const trimmed = raw.trim();
 	if (/^https?:\/\//i.test(trimmed)) return trimmed;
 	return `https://${trimmed.replace(/^\/+/, '')}`;
@@ -197,8 +198,12 @@ function resolveGameMeta(host: string): { game: string; topics: string; guideTyp
 	return fallbackFromHost(host);
 }
 
-function resolveThumbnail(game: string): string {
-	return (guideThumbnails as Record<string, string>)[game] ?? '/images/guides/default.webp';
+function resolveThumbnail(host: string, game: string): string {
+	return (
+		(guideHostThumbnails as Record<string, string>)[host] ??
+		(guideThumbnails as Record<string, string>)[game] ??
+		'/images/guides/default.webp'
+	);
 }
 
 function hashHue(input: string): number {
@@ -223,7 +228,7 @@ export function buildOtherGameGuide(url: string, index: number): OtherGameGuide 
 		description: `A practical ${meta.game} guide covering ${meta.topics} for 2026 PC players.`,
 		accent,
 		hue,
-		thumbnail: resolveThumbnail(meta.game),
+		thumbnail: resolveThumbnail(host, meta.game),
 		thumbnailAlt: `${meta.game} guide thumbnail`,
 	};
 }
