@@ -18,6 +18,10 @@ export function contentSrcSet(baseSrc: string): string | undefined {
 	if (!match) return undefined;
 
 	const [, dir, name] = match;
+	if (name.includes('screenshot')) {
+		return undefined;
+	}
+
 	if (
 		name.endsWith('-640w') ||
 		name.endsWith('-960w') ||
