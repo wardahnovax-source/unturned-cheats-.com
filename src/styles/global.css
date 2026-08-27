@@ -5,29 +5,29 @@
 	--font-sans: "Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif;
 	--font-display: "Syne Variable", "Syne", ui-sans-serif, sans-serif;
 
-	/* Near-black canvas — Linear / open-source product surface ladder */
-	--bg: #08090a;
-	--bg-panel: #0f1011;
-	--bg-elevated: #161618;
-	--bg-hover: #1c1c1f;
-	--line: #23252a;
-	--line-soft: #1a1b1e;
-	--line-strong: #34343a;
+	/* Unturned canvas — deep sky-navy with golden accent */
+	--bg: #0a1628;
+	--bg-panel: #0f1f35;
+	--bg-elevated: #152a42;
+	--bg-hover: #1a324d;
+	--line: #243a52;
+	--line-soft: #1a2d42;
+	--line-strong: #2f4a66;
 	--ink: #f5f5f7;
-	--ink-muted: #a1a1aa;
-	--ink-faint: #8b8b93;
+	--ink-muted: #a1b4c7;
+	--ink-faint: #7a8fa3;
 
-	/* Single brand accent: magenta (user request) — used sparingly */
-	--magenta: #c026d3;
-	--magenta-soft: #e879f9;
-	--magenta-deep: #86198f;
+	/* Golden sun accent + sky blue highlights */
+	--magenta: #f1a820;
+	--magenta-soft: #5dade2;
+	--magenta-deep: #1a7a4a;
 	--accent: var(--magenta);
-	--accent-hover: #d946ef;
-	--ok: #34d399;
-	--warn: #f43f5e;
+	--accent-hover: #ffc94d;
+	--ok: #27ae60;
+	--warn: #e74c3c;
 
 	/* Legacy aliases */
-	--tone-void: #050505;
+	--tone-void: #060e18;
 	--tone-night: var(--bg);
 	--tone-body: var(--bg);
 	--tone-surface: var(--bg-panel);

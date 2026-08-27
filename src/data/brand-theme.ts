@@ -48,7 +48,7 @@ export const themePresets: { id: string; label: string; accent: string; bg: stri
 	{ id: 'apex', label: 'Apex', accent: '#ff6b2c', bg: '#0c0d10' },
 	{ id: 'teal', label: 'Teal', accent: '#14b8a6', bg: '#071012' },
 	{ id: 'emerald', label: 'Emerald', accent: '#10b981', bg: '#070f0c' },
-	{ id: 'gold', label: 'Gold', accent: '#eab308', bg: '#0c0b08' },
+	{ id: 'unturned', label: 'Unturned', accent: '#f1a820', bg: '#0a1628' },
 	{ id: 'violet', label: 'Violet', accent: '#8b5cf6', bg: '#0b0914' },
 	{ id: 'cyan', label: 'Cyan', accent: '#22d3ee', bg: '#070d12' },
 	{ id: 'rose', label: 'Rose', accent: '#f43f5e', bg: '#10080c' },
@@ -173,8 +173,8 @@ export function deriveBrandTheme(input: Partial<BrandThemeInput> = {}): BrandThe
 		ink: '#f5f5f7',
 		inkMuted: '#a1a1aa',
 		inkFaint: '#8b8b93',
-		ok: '#34d399',
-		warn: '#f43f5e',
+		ok: '#27ae60',
+		warn: '#e74c3c',
 		toneVoid,
 	};
 }
