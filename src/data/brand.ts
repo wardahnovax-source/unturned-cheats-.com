@@ -25,8 +25,8 @@ export const brand = {
 	logoRasterWidth: 512,
 	logoRasterHeight: 512,
 	logoAlt: 'Unturned Hacks logo',
-	defaultOgImage: '/images/unturned-hacks-hero-1024w.webp',
-	heroImage: '/images/unturned-hacks-hero-1024w.webp',
+	defaultOgImage: '/images/unturned-hacks-hero-1920w.webp',
+	heroImage: '/images/unturned-hacks-hero-1920w.webp',
 
 	plans: [
 		{ id: 'monthly', label: 'Monthly', price: 35, duration: 'P30D' },
