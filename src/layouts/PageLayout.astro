@@ -29,6 +29,7 @@ interface Props {
 	eyebrow?: string;
 	heroImage?: string;
 	heroAlt?: string;
+	bannerBlur?: boolean;
 	gallery?: ReadonlyArray<GalleryInput>;
 	galleryTitle?: string;
 	ctaPrimary?: { href: string; label: string; edit?: string };
@@ -49,6 +50,7 @@ const {
 	eyebrow,
 	heroImage = unturnedImages.hero,
 	heroAlt,
+	bannerBlur = false,
 	gallery = unturnedImages.product.slice(0, 3),
 	galleryTitle,
 	ctaPrimary,
@@ -124,7 +126,7 @@ const useHomeHero =
 							alt={resolvedHeroAlt}
 							width={heroWidth}
 							height={heroHeight}
-							class="banner__img"
+							class:list={['banner__img', bannerBlur && 'banner__img--blur']}
 							fetchpriority="high"
 							loading="eager"
 							decoding="async"
@@ -138,7 +140,7 @@ const useHomeHero =
 							alt={resolvedHeroAlt}
 							width="1280"
 							height="720"
-							class="banner__img"
+							class:list={['banner__img', bannerBlur && 'banner__img--blur']}
 							fetchpriority="high"
 							loading="eager"
 							decoding="async"
@@ -198,21 +200,23 @@ const useHomeHero =
 							<p class="gallery-block__eyebrow">{t('common.gallery')}</p>
 							<h2 id="page-gallery-title">{resolvedGalleryTitle}</h2>
 						</header>
-						<div class="gallery-block__grid">
-							{normalizedGallery.map((image) => (
-								<figure class="gallery-block__item">
-									<img
-										src={image.src}
-										srcset={contentSrcSet(image.src)}
-										sizes={galleryTileSizes}
-										alt={image.alt}
-										width="800"
-										height="500"
-										loading="lazy"
-										decoding="async"
-									/>
-								</figure>
-							))}
+						<div class="gallery-block__grid" data-count={normalizedGallery.length}>
+							{normalizedGallery.map((image) => {
+								const srcset = contentSrcSet(image.src);
+								return (
+									<figure class="gallery-block__item">
+										<img
+											src={image.src}
+											{...(srcset ? { srcset, sizes: galleryTileSizes } : {})}
+											alt={image.alt}
+											width="800"
+											height="500"
+											loading="lazy"
+											decoding="async"
+										/>
+									</figure>
+								);
+							})}
 						</div>
 					</section>
 				)
@@ -245,12 +249,16 @@ const useHomeHero =
 		overflow: hidden;
 	}
 
-	.banner__media picture,
 	.banner__img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		object-position: center center;
+	}
+
+	.banner__img--blur {
+		filter: blur(6px);
+		transform: scale(1.06);
 	}
 
 	.banner__scrim {
@@ -503,6 +511,11 @@ const useHomeHero =
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 0.65rem;
+	}
+
+	.gallery-block__grid[data-count='2'] {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		max-width: 42rem;
 	}
 
 	.gallery-block__item {
