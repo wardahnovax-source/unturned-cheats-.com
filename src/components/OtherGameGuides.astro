@@ -1,5 +1,17 @@
 ---
 import { otherGameGuides } from '../data/other-game-guides';
+
+function guideImageProps(thumbnail: string) {
+	if (!thumbnail.includes('/guides/hosts/') || !thumbnail.endsWith('.webp')) {
+		return { src: thumbnail };
+	}
+	const small = thumbnail.replace(/\.webp$/, '-480w.webp');
+	return {
+		src: small,
+		srcset: `${small} 480w, ${thumbnail} 640w`,
+		sizes: '(max-width: 640px) 100vw, (max-width: 980px) 45vw, 320px',
+	};
+}
 ---
 
 <section class="other-guides" aria-labelledby="other-guides-title">
@@ -13,7 +25,9 @@ import { otherGameGuides } from '../data/other-game-guides';
 
 	<div class="other-guides__grid">
 		{
-			otherGameGuides.map((guide) => (
+			otherGameGuides.map((guide) => {
+				const image = guideImageProps(guide.thumbnail);
+				return (
 				<a
 					class="other-guides__card"
 					href={guide.url}
@@ -24,12 +38,14 @@ import { otherGameGuides } from '../data/other-game-guides';
 					<div class="other-guides__media">
 						<img
 							class="other-guides__thumb"
-							src={guide.thumbnail}
+							src={image.src}
+							{...(image.srcset ? { srcset: image.srcset, sizes: image.sizes } : {})}
 							alt={guide.thumbnailAlt}
 							width="640"
 							height="360"
 							loading="lazy"
 							decoding="async"
+							fetchpriority="low"
 						/>
 						<div class="other-guides__shade" aria-hidden="true" />
 						<p class="other-guides__label">{guide.label}</p>
@@ -39,7 +55,8 @@ import { otherGameGuides } from '../data/other-game-guides';
 						<p>{guide.description}</p>
 					</div>
 				</a>
-			))
+				);
+			})
 		}
 	</div>
 </section>
@@ -50,6 +67,8 @@ import { otherGameGuides } from '../data/other-game-guides';
 		gap: 1.25rem;
 		padding-top: 0.5rem;
 		border-top: 1px solid var(--line-soft);
+		content-visibility: auto;
+		contain-intrinsic-size: 1px 5200px;
 	}
 
 	.other-guides__head h2 {
@@ -89,6 +108,8 @@ import { otherGameGuides } from '../data/other-game-guides';
 		text-decoration: none;
 		color: inherit;
 		transform: translateY(0) scale(1);
+		content-visibility: auto;
+		contain-intrinsic-size: 1px 280px;
 		transition:
 			border-color 0.28s ease,
 			transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),

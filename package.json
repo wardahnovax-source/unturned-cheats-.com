@@ -16,6 +16,7 @@
 		"dev:status": "astro dev status",
 		"dev:logs": "astro dev logs",
 		"optimize:images": "node scripts/optimize-responsive-images.mjs",
+		"optimize:guide-thumbs": "node scripts/optimize-guide-host-thumbs.mjs",
 		"fetch:images": "node scripts/fetch-unturned-images.mjs",
 		"generate:brand": "node scripts/generate-brand-assets.mjs",
 		"preview": "astro preview",
