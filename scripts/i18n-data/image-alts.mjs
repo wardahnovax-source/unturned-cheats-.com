@@ -1,0 +1,42 @@
+/** Descriptive image alts — Google rejects empty or keyword-only alts. */
+export const DESCRIPTIVE_IMAGE_ALTS = {
+	hero: 'Unturned Hacks hero — ESP and aimbot overlay in Unturned',
+	espWallhack: 'Wallhack outlines showing players and zombies through walls',
+	aimbotCombat: 'Soft aim assist overlay during an Unturned session',
+	squadFight: 'Unturned Hacks combat overlay during a squad fight',
+	playerEsp: 'Player ESP boxes and distance readouts in a Unturned session',
+	headerArt: 'Aimbot view and bone priority controls for Unturned',
+	cheatsPackage: '2D radar threat overlay for Unturned',
+	rebootFight: 'Aimbot assist during a Unturned firefight',
+	battleRoyale: 'Unturned Hacks in-session overview for Windows PC',
+	battleRoyaleIsland: 'ESP markers for loot and safezones in Unturned',
+};
+
+/** Page-level image alt by pageId (EN source of truth). */
+export const PAGE_IMAGE_ALTS = {
+	home: 'Unturned Hacks homepage hero — ESP and aimbot for Unturned',
+	'unturned-esp': 'Unturned ESP player boxes and distance readouts in a session',
+	'unturned-aimbot': 'Unturned aimbot and soft aim controls on Windows PC',
+	features: 'Unturned Hacks features — ESP, soft aim, and radar screenshots',
+	pricing: 'Unturned Hacks store plans for monthly and lifetime licenses',
+	setup: 'Unturned Hacks setup guide screenshot for Windows PC',
+	updates: 'Unturned Hacks live status after BattlEye and game patches',
+	faq: 'Unturned Hacks FAQ — delivery, setup, and update answers',
+	support: 'Unturned Hacks support page for license and setup help',
+	undetected: 'Unturned Hacks undetected status overview for Windows PC',
+	wallhack: 'Unturned wallhack visibility through walls in a session',
+	radar: 'Unturned 2D radar overlay showing nearby threats',
+	battleye: 'Unturned Hacks maintenance after a BattlEye patch',
+	'cheats-2026': 'Unturned Hacks product overview for Unturned',
+	hacks: 'Unturned Hacks product page — ESP, aimbot, and radar',
+	'cheat-download': 'Unturned Hacks download and install delivery flow',
+	'mod-menu': 'Unturned Hacks in-game menu controls',
+	'soft-aim': 'Unturned soft aim FOV and smoothness settings',
+	'best-cheats': 'Unturned Hacks overview for Unturned on PC',
+	'aimbot-hack': 'Unturned aimbot hack controls and bone priority',
+	'esp-hack': 'Unturned ESP hack boxes and loot markers',
+	'unlock-all': 'Unturned Hacks license features overview',
+	privacy: 'Unturned Hacks privacy policy page',
+	refund: 'Unturned Hacks refund policy page',
+	terms: 'Unturned Hacks terms of use page',
+};

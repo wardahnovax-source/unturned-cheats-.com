@@ -1,0 +1,47 @@
+import { siteConfig } from './site';
+
+/** Screenshots used across product pages — unturned hacks keyword alts. */
+export const unturnedImages = {
+	hero: '/images/unturned-hacks-hero-full.png',
+	espWallhack: '/images/unturned-hacks-screenshot-1.webp',
+	aimbotCombat: '/images/unturned-hacks-screenshot-2.webp',
+	aimbotSkeleton: '/images/unturned-hacks-screenshot-2.webp',
+	playerEsp: '/images/unturned-hacks-screenshot-1.webp',
+	cheatsCombat: '/images/unturned-hacks-raid.webp',
+	logo: siteConfig.logo,
+	cover: '/images/unturned-hacks-raid.webp',
+	loadoutBuilder: '/images/unturned-hacks-screenshot-1.webp',
+	squadFight: '/images/unturned-hacks-screenshot-2.webp',
+	cheatsPackage: '/images/unturned-hacks-screenshot-1.webp',
+	headerArt: '/images/unturned-hacks-screenshot-2.webp',
+	battleRoyaleCombat: '/images/unturned-hacks-raid.webp',
+	safezoneFight: '/images/unturned-hacks-screenshot-2.webp',
+	rebootFight: '/images/unturned-hacks-screenshot-2.webp',
+	scavRunCombat: '/images/unturned-hacks-screenshot-1.webp',
+	scavRunMode: '/images/unturned-hacks-screenshot-1.webp',
+	battleRoyaleIsland: '/images/unturned-hacks-screenshot-1.webp',
+	sessionMap: '/images/unturned-hacks-screenshot-1.webp',
+	product: [
+		{ src: '/images/unturned-hacks-screenshot-1.webp', alt: 'Player and zombie ESP overlay in Unturned' },
+		{ src: '/images/unturned-hacks-screenshot-2.webp', alt: 'Aimbot and no recoil controls for Unturned' },
+		{ src: '/images/unturned-hacks-screenshot-1.webp', alt: 'Item ESP and loot finder in Unturned' },
+		{ src: '/images/unturned-hacks-screenshot-2.webp', alt: 'Vehicle ESP and base finder overlay' },
+		{ src: '/images/unturned-hacks-screenshot-1.webp', alt: 'Player wallhack and distance readouts' },
+		{ src: '/images/unturned-hacks-screenshot-2.webp', alt: 'Speed hack and teleportation tools' },
+	],
+	gallery: [
+		{ src: '/images/unturned-hacks-screenshot-1.webp', alt: 'Player ESP showing enemy distance in Unturned', featured: true },
+		{ src: '/images/unturned-hacks-screenshot-2.webp', alt: 'Aimbot and no recoil view in combat' },
+		{ src: '/images/unturned-hacks-screenshot-1.webp', alt: 'Zombie ESP and item loot markers' },
+		{ src: '/images/unturned-hacks-screenshot-2.webp', alt: 'Vehicle ESP and base structure finder' },
+		{ src: '/images/unturned-hacks-hero-1024w.webp', alt: 'Unturned Hacks full feature menu on Windows PC' },
+	],
+	sitemap: [
+		{ src: '/images/unturned-hacks-screenshot-1.webp', title: '', caption: '' },
+		{ src: '/images/unturned-hacks-screenshot-2.webp', title: '', caption: '' },
+		{ src: '/images/unturned-hacks-esp.webp', title: '', caption: '' },
+		{ src: '/images/unturned-hacks-aimbot.webp', title: '', caption: '' },
+		{ src: '/images/unturned-hacks-hero-1024w.webp', title: '', caption: '' },
+		{ src: '/images/unturned-hacks-raid.webp', title: '', caption: '' },
+	],
+} as const;
