@@ -1,3 +1,5 @@
+import guideThumbnails from './guide-thumbnails.generated.json';
+
 export interface OtherGameGuide {
 	url: string;
 	label: string;
@@ -5,6 +7,8 @@ export interface OtherGameGuide {
 	description: string;
 	accent: string;
 	hue: number;
+	thumbnail: string;
+	thumbnailAlt: string;
 }
 
 /** Accent lines cycling like the reference DayZ template cards. */
@@ -193,6 +197,10 @@ function resolveGameMeta(host: string): { game: string; topics: string; guideTyp
 	return fallbackFromHost(host);
 }
 
+function resolveThumbnail(game: string): string {
+	return (guideThumbnails as Record<string, string>)[game] ?? '/images/guides/default.webp';
+}
+
 function hashHue(input: string): number {
 	let hash = 0;
 	for (let i = 0; i < input.length; i += 1) {
@@ -215,6 +223,8 @@ export function buildOtherGameGuide(url: string, index: number): OtherGameGuide 
 		description: `A practical ${meta.game} guide covering ${meta.topics} for 2026 PC players.`,
 		accent,
 		hue,
+		thumbnail: resolveThumbnail(meta.game),
+		thumbnailAlt: `${meta.game} guide thumbnail`,
 	};
 }
 
